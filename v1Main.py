@@ -1,3 +1,8 @@
+"""Version 1 Menu Program
+   ----------------------
+   Menu program with a login, displays the cafe menu,
+   allows users to add multiple items to the cart, and ability to pay"""
+
 import sys#sys.exit() 
 import v1Menu#imports the menu function from the other module
 
