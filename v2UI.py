@@ -21,4 +21,16 @@ def user_int(prompt):
     return int(num)
 
 def yes_no(prompt):
-    return buttonbox(prompt,choices=["Yes","No"]).lower()
+    return buttonbox(prompt,choices=["Yes","No"])
+
+def menu_choices(prompt):
+    return buttonbox(prompt,choices=["Nachos",
+                                     "Bottled Water",
+                                     "Steamed Buns",
+                                     "Noodles",
+                                     "Hot Chocolate",
+                                     "Brownie",
+                                     "Pizza Bread",
+                                     "Hash Brown",
+                                     "Aloe Vera",
+                                     "Garlic Bread"])

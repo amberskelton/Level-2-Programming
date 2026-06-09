@@ -34,7 +34,7 @@ def login():#function that user enters ID and password to login into the cafe me
                             return None
                         elif password.isalnum():#checks if password contains any characters other than letters or numbers and proceeds if not
                             if str(password)==obtainedpswd:#if password equals the password on the file proceed, str() because IDs in the external file are strings and not integers
-                                return obtainedpswd
+                                return ask_id,obtainedpswd
                             else:#if password is incorrect
                                 v2UI.err_msg('Incorrect password. Please try again.')
                         else:
@@ -63,7 +63,7 @@ def register():
                             return None
                         elif password.isalnum():#checks if password contains any characters other than letters or numbers and proceeds if not
                             write_pswd(register_id,password)
-                            return password
+                            return register_id,password
                         else:
                             v2UI.err_msg('Please create your password containing only letters and numbers.')
         except ValueError:#catches error when input contains characters that are not numbers
