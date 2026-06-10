@@ -1,0 +1,4 @@
+23155 ; Noodles ~ $4.00 x3, Bottled Water ~ $3.00 x1,  ; $15.00
+23333 ; Steamed Buns ~ $4.00 x2, Hot Chocolate ~ $2.00 x3,  ; $14.00
+12345 ; Nachos ~ $5.00 x3, Bottled Water ~ $3.00 x1,  ; $18.00
+87856 ; Aloe Vera ~ $5.00 x1, Nachos ~ $5.00 x1,  ; $10.00
