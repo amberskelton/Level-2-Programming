@@ -45,17 +45,22 @@ def remove_cart(cart):#function that removes an item from the cart
         choices.append(item[0])#adds the cart to the list choices=[] to remove
     remove_item=v2UI.remove('Select the item you would like to remove.',choices)
     for item in cart:
-        if item[0]==remove_item:#if the item in the cart is the same as the  user's selected
-            qty_remove=v2UI.user_int(f'How many of this item ({remove_item}) would you like to remove?\nThere is currently {item[2]} in the cart.')
-            if qty_remove==None:#if cancelled, user input is None
-                return None
-            elif qty_remove<item[2]:#if the quantity they want to remove is less than the quantity of that item
-                item[2]-=qty_remove#removes from the quantity
-            elif qty_remove==item[2]:#if the quantity they want to remove is the same as the quantity of that item
-                cart.remove(item)#removes that item altogether from cart
-            else:
-                v2UI.err_msg('You cannot remove more than what is in the cart.')
-            break
+        if item[0]==remove_item:#if the item in the cart is the same as the user's selected
+            try:
+                qty_remove=v2UI.user_int(f'How many of this item ({remove_item}) would you like to remove?\nThere is currently {item[2]} in the cart.')
+                if qty_remove==None:#if cancelled, user input is None
+                    return None
+                elif qty_remove<0:
+                    v2UI.err_msg('Please enter a positive number.')
+                elif qty_remove<item[2]:#if the quantity they want to remove is less than the quantity of that item
+                    item[2]-=qty_remove#removes from the quantity
+                elif qty_remove==item[2]:#if the quantity they want to remove is the same as the quantity of that item
+                    cart.remove(item)#removes that item altogether from cart
+                else:
+                    v2UI.err_msg('You cannot remove more than what is in the cart.')
+                break
+            except ValueError:
+                v2UI.err_msg('Please add a valid number.')
 
 def save_order(student_id,invoice,total):#function that saves the user's invoice to ext file orderhistory along with the ID
     with open ('orderhistory.txt', 'a')as file:#opens the orderhistory.txt external file, 'a' means it adds new text to the external file
